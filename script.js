@@ -369,3 +369,4 @@ function init() {
 
 // بدء التطبيق
 document.addEventListener('DOMContentLoaded', init);
+

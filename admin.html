@@ -3,757 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة التحكم | العيادة البيطرية</title>
+    <title>لوحة تحكم العيادة البيطرية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #8BC34A;
-            --dark-color: #2E7D32;
-            --light-color: #F7FFF7;
-            --accent-color: #FFC107;
-            --gray-color: #6C757D;
-            --light-gray: #F8F9FA;
-            --border-radius: 12px;
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        body {
-            background-color: var(--light-gray);
-            color: var(--dark-color);
-            line-height: 1.6;
-        }
-
+        /* تنسيقات إضافية للوحة التحكم */
         .admin-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 20px;
         }
-
-        /* شريط التنقل العلوي */
-        .top-nav {
+        
+        .admin-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
             margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
         }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: 700;
+        
+        .admin-title {
             color: var(--primary-color);
+            font-size: 1.8rem;
         }
-
-        .logo-icon {
-            margin-left: 10px;
-            font-size: 1.5rem;
-        }
-
-        .nav-actions {
+        
+        .admin-nav {
             display: flex;
-            align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
-
-        .admin-logout {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
+        
+        .admin-nav a {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 8px 15px;
             border-radius: var(--border-radius);
-            cursor: pointer;
             transition: var(--transition);
         }
-
-        .admin-logout:hover {
-            background: var(--dark-color);
+        
+        .admin-nav a:hover, .admin-nav a.active {
+            background: var(--primary-color);
+            color: white;
         }
-
-        /* لوحة التحكم */
-        .admin-panel {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        /* القائمة الجانبية */
-        .admin-sidebar {
+        
+        .admin-section {
             background: white;
             border-radius: var(--border-radius);
             padding: 20px;
+            margin-bottom: 30px;
             box-shadow: var(--box-shadow);
-            height: fit-content;
         }
-
-        .admin-sidebar h3 {
+        
+        .section-title {
+            color: var(--primary-color);
             margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            color: var(--primary-color);
-        }
-
-        .sidebar-menu {
-            list-style: none;
-        }
-
-        .sidebar-menu li {
-            margin-bottom: 10px;
-        }
-
-        .sidebar-menu a {
-            display: block;
-            padding: 10px;
-            border-radius: var(--border-radius);
-            color: var(--dark-color);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .sidebar-menu a:hover, .sidebar-menu a.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .sidebar-menu i {
-            margin-left: 8px;
-            width: 20px;
-            text-align: center;
-        }
-
-        /* محتوى لوحة التحكم */
-        .admin-content {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
-        }
-
-        .admin-content h2 {
-            margin-bottom: 25px;
-            color: var(--primary-color);
+            font-size: 1.4rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
-        .admin-content h2 i {
-            font-size: 1.2rem;
-        }
-
-        /* نماذج الإدخال */
+        
         .form-group {
             margin-bottom: 20px;
         }
-
+        
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
         }
-
+        
         .form-control {
             width: 100%;
-            padding: 12px 15px;
+            padding: 10px 15px;
             border: 1px solid #ddd;
             border-radius: var(--border-radius);
             font-size: 1rem;
             transition: var(--transition);
         }
-
+        
         .form-control:focus {
             border-color: var(--primary-color);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
         }
-
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
+        
         .btn {
-            background: var(--primary-color);
-            color: white;
+            padding: 10px 20px;
             border: none;
-            padding: 12px 25px;
             border-radius: var(--border-radius);
             cursor: pointer;
             font-size: 1rem;
-            font-weight: 500;
             transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
         }
-
-        .btn:hover {
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
             background: var(--dark-color);
         }
-
-        .btn i {
-            font-size: 0.9rem;
+        
+        .btn-danger {
+            background: #dc3545;
+            color: white;
         }
-
-        .btn-secondary {
-            background: var(--gray-color);
+        
+        .btn-danger:hover {
+            background: #bb2d3b;
         }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-        }
-
-        /* جدول الأقسام والخدمات */
-        .table-responsive {
-            overflow-x: auto;
-        }
-
-        .admin-table {
+        
+        .table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
-
-        .admin-table th, .admin-table td {
+        
+        .table th, .table td {
             padding: 12px 15px;
             text-align: right;
             border-bottom: 1px solid #eee;
         }
-
-        .admin-table th {
+        
+        .table th {
             background: var(--light-gray);
-            font-weight: 700;
-            color: var(--dark-color);
-        }
-
-        .admin-table tr:hover {
-            background: rgba(76, 175, 80, 0.05);
-        }
-
-        .action-btns {
-            display: flex;
-            gap: 8px;
-        }
-
-        .action-btn {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .edit-btn {
-            background: var(--accent-color);
-            color: var(--dark-color);
-        }
-
-        .delete-btn {
-            background: #dc3545;
-            color: white;
-        }
-
-        /* بطاقات الأقسام */
-        .departments-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .department-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 20px;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            border: 2px solid #eee;
-        }
-
-        .department-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-5px);
-        }
-
-        .department-card i {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .department-card h3 {
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
-
-        .department-card p {
-            color: var(--gray-color);
-            margin-bottom: 15px;
-        }
-
-        .department-services {
-            margin-top: 15px;
-            border-top: 1px dashed #ddd;
-            padding-top: 15px;
-        }
-
-        .service-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #f5f5f5;
-        }
-
-        .service-item:last-child {
-            border-bottom: none;
-        }
-
-        .service-name {
             font-weight: 500;
         }
-
-        .service-price {
-            color: var(--primary-color);
-            font-weight: bold;
+        
+        .table tr:hover {
+            background: #f9f9f9;
         }
-
-        /* التنبيهات */
+        
+        .action-btns {
+            display: flex;
+            gap: 10px;
+        }
+        
         .alert {
             padding: 15px;
             border-radius: var(--border-radius);
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
-
+        
         .alert-success {
             background: #d4edda;
             color: #155724;
         }
-
+        
         .alert-danger {
             background: #f8d7da;
             color: #721c24;
         }
-
-        .alert i {
-            font-size: 1.2rem;
-        }
-
-        /* تصميم متجاوب */
-        @media (max-width: 992px) {
-            .admin-panel {
-                grid-template-columns: 1fr;
-            }
-            
-            .departments-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-        }
-
+        
+        /* تصميم متجاوب للوحة التحكم */
         @media (max-width: 768px) {
-            .top-nav {
+            .admin-header {
                 flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .departments-grid {
-                grid-template-columns: 1fr;
+                align-items: flex-start;
+                gap: 15px;
             }
             
-            .action-btns {
-                flex-direction: column;
-                gap: 5px;
+            .table {
+                display: block;
+                overflow-x: auto;
             }
         }
     </style>
 </head>
 <body>
     <div class="admin-container">
-        <!-- شريط التنقل العلوي -->
-        <nav class="top-nav">
-            <div class="nav-brand">
-                <i class="fas fa-paw logo-icon"></i>
-                <span>لوحة تحكم العيادة البيطرية</span>
-            </div>
-            <div class="nav-actions">
-                <button class="admin-logout">
-                    <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
-                </button>
-            </div>
-        </nav>
-
-        <!-- لوحة التحكم -->
-        <div class="admin-panel">
-            <!-- القائمة الجانبية -->
-            <div class="admin-sidebar">
-                <h3>القائمة</h3>
-                <ul class="sidebar-menu">
-                    <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
-                    <li><a href="#departments"><i class="fas fa-procedures"></i> إدارة الأقسام</a></li>
-                    <li><a href="#services"><i class="fas fa-syringe"></i> إدارة الخدمات</a></li>
-                    <li><a href="#orders"><i class="fas fa-shopping-basket"></i> الطلبات</a></li>
-                    <li><a href="#settings"><i class="fas fa-cog"></i> الإعدادات</a></li>
-                </ul>
-            </div>
-
-            <!-- محتوى لوحة التحكم -->
-            <div class="admin-content">
-                <!-- قسم إدارة الأقسام -->
-                <section id="departments">
-                    <h2><i class="fas fa-procedures"></i> إدارة الأقسام</h2>
-                    
-                    <div class="alert alert-success">
-                        <i class="fas fa-check-circle"></i>
-                        تم تحديث القسم بنجاح
-                    </div>
-                    
-                    <div class="departments-grid">
-                        <div class="department-card">
-                            <i class="fas fa-syringe"></i>
-                            <h3>قسم التطعيمات</h3>
-                            <p>تطعيمات سنوية ودورية للحماية من الأمراض</p>
-                            
-                            <div class="department-services">
-                                <div class="service-item">
-                                    <span class="service-name">تطعيم الكلاب الثماني</span>
-                                    <span class="service-price">50 د.ع</span>
-                                </div>
-                                <div class="service-item">
-                                    <span class="service-name">تطعيم القطط الرباعي</span>
-                                    <span class="service-price">45 د.ع</span>
-                                </div>
-                                <div class="service-item">
-                                    <span class="service-name">تطعيم داء الكلب</span>
-                                    <span class="service-price">30 د.ع</span>
-                                </div>
-                            </div>
-                            
-                            <div class="action-btns" style="margin-top: 15px;">
-                                <button class="btn btn-secondary" style="padding: 8px 15px;">
-                                    <i class="fas fa-edit"></i> تعديل
-                                </button>
-                                <button class="btn btn-secondary" style="padding: 8px 15px; background: #dc3545;">
-                                    <i class="fas fa-trash"></i> حذف
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="department-card">
-                            <i class="fas fa-cut"></i>
-                            <h3>قسم الجراحة</h3>
-                            <p>جراحات عامة وتخصصية للحيوانات الأليفة</p>
-                            
-                            <div class="department-services">
-                                <div class="service-item">
-                                    <span class="service-name">تعقيم القطط</span>
-                                    <span class="service-price">120 د.ع</span>
-                                </div>
-                                <div class="service-item">
-                                    <span class="service-name">تعقيم الكلاب</span>
-                                    <span class="service-price">150 د.ع</span>
-                                </div>
-                                <div class="service-item">
-                                    <span class="service-name">جراحة استكشافية</span>
-                                    <span class="service-price">250 د.ع</span>
-                                </div>
-                            </div>
-                            
-                            <div class="action-btns" style="margin-top: 15px;">
-                                <button class="btn btn-secondary" style="padding: 8px 15px;">
-                                    <i class="fas fa-edit"></i> تعديل
-                                </button>
-                                <button class="btn btn-secondary" style="padding: 8px 15px; background: #dc3545;">
-                                    <i class="fas fa-trash"></i> حذف
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="department-card">
-                            <i class="fas fa-stethoscope"></i>
-                            <h3>قسم التشخيص</h3>
-                            <p>أحدث أجهزة الأشعة والتحاليل المخبرية</p>
-                            
-                            <div class="department-services">
-                                <div class="service-item">
-                                    <span class="service-name">فحص الدم الكامل</span>
-                                    <span class="service-price">80 د.ع</span>
-                                </div>
-                                <div class="service-item">
-                                    <span class="service-name">أشعة سينية</span>
-                                    <span class="service-price">100 د.ع</span>
-                                </div>
-                            </div>
-                            
-                            <div class="action-btns" style="margin-top: 15px;">
-                                <button class="btn btn-secondary" style="padding: 8px 15px;">
-                                    <i class="fas fa-edit"></i> تعديل
-                                </button>
-                                <button class="btn btn-secondary" style="padding: 8px 15px; background: #dc3545;">
-                                    <i class="fas fa-trash"></i> حذف
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- نموذج إضافة قسم جديد -->
-                    <h3 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-plus-circle"></i> إضافة قسم جديد</h3>
-                    
-                    <form id="add-department-form">
-                        <div class="form-group">
-                            <label for="department-name">اسم القسم</label>
-                            <input type="text" id="department-name" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="department-icon">أيقونة القسم (اختياري)</label>
-                            <select id="department-icon" class="form-control">
-                                <option value="fa-syringe">إبرة (تطعيمات)</option>
-                                <option value="fa-cut">مقص (جراحة)</option>
-                                <option value="fa-stethoscope">سماعة طبية (تشخيص)</option>
-                                <option value="fa-paw">قدم حيوان (تجميل)</option>
-                                <option value="fa-x-ray">أشعة سينية</option>
-                                <option value="fa-pills">أدوية</option>
-                                <option value="fa-teeth">أسنان</option>
-                                <option value="fa-heart">قلب</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="department-description">وصف القسم</label>
-                            <textarea id="department-description" class="form-control" rows="3" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn">
-                            <i class="fas fa-save"></i> حفظ القسم
-                        </button>
-                    </form>
-                </section>
-                
-                <!-- قسم إدارة الخدمات -->
-                <section id="services" style="margin-top: 50px;">
-                    <h2><i class="fas fa-syringe"></i> إدارة الخدمات</h2>
-                    
-                    <div class="alert alert-danger">
-                        <i class="fas fa-exclamation-circle"></i>
-                        يرجى ملء جميع الحقول المطلوبة
-                    </div>
-                    
-                    <div class="table-responsive">
-                        <table class="admin-table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>اسم الخدمة</th>
-                                    <th>القسم</th>
-                                    <th>السعر</th>
-                                    <th>الوصف</th>
-                                    <th>الإجراءات</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>تطعيم الكلاب الثماني</td>
-                                    <td>التطعيمات</td>
-                                    <td>50 د.ع</td>
-                                    <td>تطعيم شامل ضد 8 أمراض شائعة</td>
-                                    <td>
-                                        <div class="action-btns">
-                                            <div class="action-btn edit-btn">
-                                                <i class="fas fa-edit"></i>
-                                            </div>
-                                            <div class="action-btn delete-btn">
-                                                <i class="fas fa-trash"></i>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>تعقيم القطط</td>
-                                    <td>الجراحة</td>
-                                    <td>120 د.ع</td>
-                                    <td>عملية تعقيم للقطط الإناث</td>
-                                    <td>
-                                        <div class="action-btns">
-                                            <div class="action-btn edit-btn">
-                                                <i class="fas fa-edit"></i>
-                                            </div>
-                                            <div class="action-btn delete-btn">
-                                                <i class="fas fa-trash"></i>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>فحص الدم الكامل</td>
-                                    <td>التشخيص</td>
-                                    <td>80 د.ع</td>
-                                    <td>فحص شامل لمكونات الدم</td>
-                                    <td>
-                                        <div class="action-btns">
-                                            <div class="action-btn edit-btn">
-                                                <i class="fas fa-edit"></i>
-                                            </div>
-                                            <div class="action-btn delete-btn">
-                                                <i class="fas fa-trash"></i>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <!-- نموذج إضافة خدمة جديدة -->
-                    <h3 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-plus-circle"></i> إضافة خدمة جديدة</h3>
-                    
-                    <form id="add-service-form">
-                        <div class="form-group">
-                            <label for="service-name">اسم الخدمة</label>
-                            <input type="text" id="service-name" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service-department">القسم التابع له</label>
-                            <select id="service-department" class="form-control" required>
-                                <option value="">اختر القسم...</option>
-                                <option value="1">التطعيمات</option>
-                                <option value="2">الجراحة</option>
-                                <option value="3">التشخيص</option>
-                                <option value="4">التجميل</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service-price">السعر (دينار عراقي)</label>
-                            <input type="number" id="service-price" class="form-control" min="0" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service-description">وصف الخدمة</label>
-                            <textarea id="service-description" class="form-control" rows="3" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn">
-                            <i class="fas fa-save"></i> حفظ الخدمة
-                        </button>
-                    </form>
-                </section>
+        <!-- رأس لوحة التحكم -->
+        <div class="admin-header">
+            <h1 class="admin-title">
+                <i class="fas fa-cogs"></i> لوحة تحكم العيادة البيطرية
+            </h1>
+            <div class="admin-nav">
+                <a href="index.html"><i class="fas fa-home"></i> العودة للرئيسية</a>
+                <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a>
             </div>
         </div>
+        
+        <!-- قسم إضافة قسم جديد -->
+        <section class="admin-section" id="add-department">
+            <h2 class="section-title">
+                <i class="fas fa-plus-circle"></i> إضافة قسم جديد
+            </h2>
+            
+            <form id="department-form">
+                <div class="form-group">
+                    <label for="department-name">اسم القسم:</label>
+                    <input type="text" id="department-name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="department-icon">أيقونة القسم:</label>
+                    <select id="department-icon" class="form-control" required>
+                        <option value="">اختر أيقونة</option>
+                        <option value="fas fa-syringe">إبرة (تطعيمات)</option>
+                        <option value="fas fa-cut">مقص (جراحة)</option>
+                        <option value="fas fa-stethoscope">سماعة طبية (تشخيص)</option>
+                        <option value="fas fa-paw">قدم حيوان (تجميل)</option>
+                        <option value="fas fa-pills">أدوية (علاجات)</option>
+                        <option value="fas fa-heartbeat">قلب (رعاية)</option>
+                        <option value="fas fa-bone">عظم (إكسسوارات)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="department-description">وصف القسم:</label>
+                    <textarea id="department-description" class="form-control" rows="3" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> حفظ القسم
+                </button>
+            </form>
+        </section>
+        
+        <!-- قسم إضافة خدمة جديدة -->
+        <section class="admin-section" id="add-service">
+            <h2 class="section-title">
+                <i class="fas fa-procedures"></i> إضافة خدمة جديدة
+            </h2>
+            
+            <form id="service-form">
+                <div class="form-group">
+                    <label for="service-department">القسم التابع له:</label>
+                    <select id="service-department" class="form-control" required>
+                        <option value="">اختر القسم</option>
+                        <!-- سيتم تعبئة الأقسام عبر JavaScript -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service-name">اسم الخدمة:</label>
+                    <input type="text" id="service-name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service-description">وصف الخدمة:</label>
+                    <textarea id="service-description" class="form-control" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service-price">سعر الخدمة (دينار عراقي):</label>
+                    <input type="number" id="service-price" class="form-control" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service-image">صورة الخدمة (رابط URL):</label>
+                    <input type="url" id="service-image" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="service-popular"> خدمة مميزة (تظهر كأكثر طلباً)
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> حفظ الخدمة
+                </button>
+            </form>
+        </section>
+        
+        <!-- قسم عرض الأقسام والخدمات -->
+        <section class="admin-section" id="manage-content">
+            <h2 class="section-title">
+                <i class="fas fa-list"></i> إدارة المحتوى
+            </h2>
+            
+            <div id="alert-message" style="display: none;"></div>
+            
+            <ul class="nav nav-tabs" id="content-tabs">
+                <li class="active"><a href="#departments-tab" data-toggle="tab">الأقسام</a></li>
+                <li><a href="#services-tab" data-toggle="tab">الخدمات</a></li>
+            </ul>
+            
+            <div class="tab-content">
+                <!-- تبويب الأقسام -->
+                <div class="tab-pane active" id="departments-tab">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>اسم القسم</th>
+                                <th>الأيقونة</th>
+                                <th>الوصف</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="departments-list">
+                            <!-- سيتم تعبئة الأقسام عبر JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- تبويب الخدمات -->
+                <div class="tab-pane" id="services-tab">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>اسم الخدمة</th>
+                                <th>القسم</th>
+                                <th>الوصف</th>
+                                <th>السعر</th>
+                                <th>مميزة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="services-list">
+                            <!-- سيتم تعبئة الخدمات عبر JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <script>
-        // كود JavaScript للتحكم في لوحة الإدارة
-        document.addEventListener('DOMContentLoaded', function() {
-            // التنقل بين الأقسام
-            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
-            
-            sidebarLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // إزالة النشاط من جميع الروابط
-                    sidebarLinks.forEach(l => l.classList.remove('active'));
-                    
-                    // إضافة النشاط للرابط الحالي
-                    this.classList.add('active');
-                    
-                    // إظهار القسم المحدد وإخفاء الآخرين
-                    const targetId = this.getAttribute('href').substring(1);
-                    const sections = document.querySelectorAll('.admin-content > section');
-                    
-                    sections.forEach(section => {
-                        if (section.id === targetId) {
-                            section.style.display = 'block';
-                        } else {
-                            section.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // تعيين القسم الأول كنشط عند التحميل
-            document.querySelector('.sidebar-menu a').click();
-            
-            // إدارة الأقسام
-            const addDepartmentForm = document.getElementById('add-department-form');
-            
-            if (addDepartmentForm) {
-                addDepartmentForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const name = document.getElementById('department-name').value;
-                    const icon = document.getElementById('department-icon').value;
-                    const description = document.getElementById('department-description').value;
-                    
-                    // هنا يمكنك إضافة كود لإرسال البيانات إلى الخادم
-                    console.log('إضافة قسم جديد:', { name, icon, description });
-                    
-                    // عرض رسالة نجاح
-                    alert('تمت إضافة القسم بنجاح!');
-                    
-                    // إعادة تعيين النموذج
-                    this.reset();
-                });
-            }
-            
-            // إدارة الخدمات
-            const addServiceForm = document.getElementById('add-service-form');
-            
-            if (addServiceForm) {
-                addServiceForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const name = document.getElementById('service-name').value;
-                    const department = document.getElementById('service-department').value;
-                    const price = document.getElementById('service-price').value;
-                    const description = document.getElementById('service-description').value;
-                    
-                    // هنا يمكنك إضافة كود لإرسال البيانات إلى الخادم
-                    console.log('إضافة خدمة جديدة:', { name, department, price, description });
-                    
-                    // عرض رسالة نجاح
-                    alert('تمت إضافة الخدمة بنجاح!');
-                    
-                    // إعادة تعيين النموذج
-                    this.reset();
-                });
-            }
-            
-            // تسجيل الخروج
-            const logoutBtn = document.querySelector('.admin-logout');
-            
-            if (logoutBtn) {
-                logoutBtn.addEventListener('click', function() {
-                    if (confirm('هل أنت متأكد من تسجيل الخروج؟')) {
-                        // هنا يمكنك إضافة كود تسجيل الخروج
-                        window.location.href = 'login.html';
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="admin.js"></script>
 </body>
 </html>
