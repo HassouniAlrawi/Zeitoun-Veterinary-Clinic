@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنيو الذكي | العيادة البيطرية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- شريط التنقل العلوي -->
+        <nav class="top-nav">
+            <div class="nav-brand">
+                <i class="fas fa-paw logo-icon"></i>
+                <span>عيادة الزيتون البيطرية</span>
+            </div>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="ابحث عن المنتجات...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+<a href="admin.html" style="position:fixed; bottom:20px; left:20px; background:#4CAF50; color:white; padding:10px; border-radius:50%;">
+    <i class="fas fa-cog"></i>
+</a>
+        <!-- المحتوى الرئيسي -->
+        <div class="main-content">
+            <!-- شريط التصنيفات -->
+            <div class="categories-bar">
+                <div class="category-filter active" data-category="all">الكل</div>
+                <div class="category-filter" data-category="treatments">
+                    <i class="fas fa-syringe"></i>
+                    <span>علاجات</span>
+                </div>
+                <div class="category-filter" data-category="accessories">
+                    <i class="fas fa-bone"></i>
+                    <span>اكسسوارات وألعاب</span>
+                </div>
+                <div class="category-filter" data-category="beds">
+                    <i class="fas fa-bed"></i>
+                    <span>منامات وبوكسات نقل</span>
+                </div>
+                <div class="category-filter" data-category="sand">
+                    <i class="fas fa-square"></i>
+                    <span>رمل</span>
+                </div>
+                <div class="category-filter" data-category="dry_food">
+                    <i class="fas fa-drumstick-bite"></i>
+                    <span>دراي فوود</span>
+                </div>
+                <div class="category-filter" data-category="canned_food">
+                    <i class="fas fa-can"></i>
+                    <span>معلبات ومغلفات</span>
+                </div>
+                <div class="category-filter" data-category="care">
+                    <i class="fas fa-spa"></i>
+                    <span>منتجات عناية</span>
+                </div>
+                <div class="category-filter" data-category="prevention">
+                    <i class="fas fa-shield-virus"></i>
+                    <span>مكافئات</span>
+                </div>
+            </div>
+
+            <!-- بطاقات المنتجات -->
+            <div class="products-grid" id="menu-container">
+                <!-- سيتم تعبئتها عبر JavaScript -->
+            </div>
+        </div>
+
+        <!-- سلة التسوق العائمة -->
+        <div class="floating-cart">
+            <div class="cart-header">
+                <h3>سلة التسوق</h3>
+                <span class="close-cart"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- سيتم تعبئتها عبر JavaScript -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>المجموع:</span>
+                    <span class="total-price">0 د.ع</span>
+                </div>
+                <button class="checkout-btn">إتمام الطلب</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

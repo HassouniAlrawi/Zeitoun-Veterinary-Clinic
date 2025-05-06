@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم العيادة البيطرية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* تنسيقات إضافية للوحة التحكم */
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .admin-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+        
+        .admin-nav {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .admin-nav a {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .admin-nav a:hover, .admin-nav a.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .admin-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--dark-color);
+        }
+        
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #bb2d3b;
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .table th, .table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .table th {
+            background: var(--light-gray);
+            font-weight: 500;
+        }
+        
+        .table tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .action-btns {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .alert-danger {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        /* تصميم متجاوب للوحة التحكم */
+        @media (max-width: 768px) {
+            .admin-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- رأس لوحة التحكم -->
+        <div class="admin-header">
+            <h1 class="admin-title">
+                <i class="fas fa-cogs"></i> لوحة تحكم العيادة البيطرية
+            </h1>
+            <div class="admin-nav">
+                <a href="#" class="active"><i class="fas fa-home"></i> الرئيسية</a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a>
+            </div>
+        </div>
+        
+        <!-- قسم إضافة قسم جديد -->
+        <section class="admin-section" id="add-department">
+            <h2 class="section-title">
+                <i class="fas fa-plus-circle"></i> إضافة قسم جديد
+            </h2>
+            
+            <form id="department-form">
+                <div class="form-group">
+                    <label for="department-name">اسم القسم:</label>
+                    <input type="text" id="department-name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="department-icon">أيقونة القسم:</label>
+                    <select id="department-icon" class="form-control" required>
+                        <option value="">اختر أيقونة</option>
+                        <option value="fas fa-syringe">إبرة (تطعيمات)</option>
+                        <option value="fas fa-cut">مقص (جراحة)</option>
+                        <option value="fas fa-stethoscope">سماعة طبية (تشخيص)</option>
+                        <option value="fas fa-paw">قدم حيوان (تجميل)</option>
+                        <option value="fas fa-pills">أدوية (علاجات)</option>
+                        <option value="fas fa-heartbeat">قلب (رعاية)</option>
+                        <option value="fas fa-bone">عظم (إكسسوارات)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="department-description">وصف القسم:</label>
+                    <textarea id="department-description" class="form-control" rows="3" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> حفظ القسم
+                </button>
+            </form>
+        </section>
+        
+        <!-- قسم إضافة خدمة جديدة -->
+        <section class="admin-section" id="add-service">
+            <h2 class="section-title">
+                <i class="fas fa-procedures"></i> إضافة خدمة جديدة
+            </h2>
+            
+            <form id="service-form">
+                <div class="form-group">
+                    <label for="service-department">القسم التابع له:</label>
+                    <select id="service-department" class="form-control" required>
+                        <option value="">اختر القسم</option>
+                        <!-- سيتم تعبئة الأقسام عبر JavaScript -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service-name">اسم الخدمة:</label>
+                    <input type="text" id="service-name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service-description">وصف الخدمة:</label>
+                    <textarea id="service-description" class="form-control" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service-price">سعر الخدمة (دينار عراقي):</label>
+                    <input type="number" id="service-price" class="form-control" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service-image">صورة الخدمة (رابط URL):</label>
+                    <input type="url" id="service-image" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="service-popular"> خدمة مميزة (تظهر كأكثر طلباً)
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> حفظ الخدمة
+                </button>
+            </form>
+        </section>
+        
+        <!-- قسم عرض الأقسام والخدمات -->
+        <section class="admin-section" id="manage-content">
+            <h2 class="section-title">
+                <i class="fas fa-list"></i> إدارة المحتوى
+            </h2>
+            
+            <div id="alert-message" style="display: none;"></div>
+            
+            <ul class="nav nav-tabs" id="content-tabs">
+                <li class="active"><a href="#departments-tab" data-toggle="tab">الأقسام</a></li>
+                <li><a href="#services-tab" data-toggle="tab">الخدمات</a></li>
+            </ul>
+            
+            <div class="tab-content">
+                <!-- تبويب الأقسام -->
+                <div class="tab-pane active" id="departments-tab">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>اسم القسم</th>
+                                <th>الأيقونة</th>
+                                <th>الوصف</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="departments-list">
+                            <!-- سيتم تعبئة الأقسام عبر JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- تبويب الخدمات -->
+                <div class="tab-pane" id="services-tab">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>اسم الخدمة</th>
+                                <th>القسم</th>
+                                <th>الوصف</th>
+                                <th>السعر</th>
+                                <th>مميزة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="services-list">
+                            <!-- سيتم تعبئة الخدمات عبر JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="admin.js"></script>
+    <!-- أضف هذه المكتبات -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+<script>
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+
+  // تعديل دالة إضافة قسم لترسل البيانات لـ Firebase
+  function addDepartment(name, icon, description) {
+    const newDeptRef = database.ref('departments/').push();
+    newDeptRef.set({
+      name: name,
+      icon: icon,
+      description: description
+    });
+  }
+
+  // استبدال كود الإرسال في النموذج
+  addDepartmentForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('department-name').value;
+    const icon = document.getElementById('department-icon').value;
+    const description = document.getElementById('department-description').value;
+    
+    addDepartment(name, icon, description);
+    alert('تم الحفظ في قاعدة البيانات!');
+    this.reset();
+  });
+</script>
+</body>
+</html>
