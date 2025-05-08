@@ -117,6 +117,7 @@ function toggleCart(e) {
     }
 }
 
+
 function checkout() {
     if (cart.length === 0) {
         alert('السلة فارغة، أضف بعض العناصر أولاً');
