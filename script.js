@@ -117,7 +117,6 @@ function toggleCart(e) {
     }
 }
 
-
 function checkout() {
     if (cart.length === 0) {
         alert('السلة فارغة، أضف بعض العناصر أولاً');
@@ -126,10 +125,15 @@ function checkout() {
     
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const orderDetails = cart.map(item => 
-        `${item.name} (${item.quantity}) - ${item.price * item.quantity} د.ع`
-    ).join('\n');
+        `${item.name} (الكمية: ${item.quantity}) - ${item.price * item.quantity} د.ع`
+    ).join('%0A'); // %0A هو رمز السطر الجديد في روابط الواتساب
     
-    alert(`تفاصيل الطلب:\n\n${orderDetails}\n\nالمجموع: ${total} د.ع\n\nشكراً لطلبك!`);
+    const message = `طلب جديد من عيادة الزيتون البيطرية%0A%0A${orderDetails}%0A%0Aالمجموع الكلي: ${total} د.ع`;
+    
+    const whatsappUrl = `https://wa.me/9647718721380?text=${message}`;
+    
+    // فتح الرابط في نافذة جديدة
+    window.open(whatsappUrl, '_blank');
     
     cart = [];
     updateCart();
