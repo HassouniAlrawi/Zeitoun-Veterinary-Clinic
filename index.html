@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+	
+	 <a href="Main.html" class="store-btn" id="dynamicBtn">
+    <i class="fas fa-store"></i>
+</a>
+    
     <div class="app-container">
         <!-- شريط التنقل العلوي -->
         <nav class="top-nav">
@@ -26,6 +31,7 @@
                     <span class="cart-count">0</span>
                 </div>
             </div>
+            
         </nav>
 
         <!-- المحتوى الرئيسي -->
@@ -64,7 +70,12 @@
                 <div class="category-filter" data-category="prevention">
                     <i class="fas fa-shield-virus"></i>
                     <span>مكافئات</span>
+                    
                 </div>
+                <div class="category-filter" data-category="birds">
+    <i class="fas fa-dove"></i>
+    <span>منتجات الطيور</span>
+</div>
             </div>
 
             <!-- بطاقات المنتجات -->
@@ -112,11 +123,11 @@
                 <span class="nav-label">الرئيسية</span>
             </a>
             
-            <a href="products.html" class="nav-item">
+            <a href="index.html" class="nav-item">
                 <div class="nav-icon-container">
-                    <i class="fas fa-shopping-bag nav-icon"></i>
+                    <i class="fas fa-info-circle"></i>
                 </div>
-                <span class="nav-label">المنتجات</span>
+                <span class="nav-label">عن العيادة</span>
             </a>
             
             <div class="nav-item nav-expand-btn">
@@ -164,5 +175,106 @@
 
     <script src="data.js"></script>
     <script src="script.js"></script>
+    
+    
+    
+    
+    
+
+<script>
+    // إنشاء عنصر الزر ديناميكيًا إذا لم يكن موجودًا
+    const storeBtn = document.getElementById('dynamicBtn') || document.createElement('a');
+    if (!storeBtn.id) {
+        storeBtn.id = 'dynamicBtn';
+        storeBtn.href = 'Main.html';
+        storeBtn.className = 'store-btn';
+        storeBtn.innerHTML = '<i class="fas fa-store"></i>';
+        document.body.appendChild(storeBtn);
+    }
+
+    // إضافة الأنماط
+    const style = document.createElement('style');
+    style.textContent = `
+        .store-btn {
+            position: fixed;
+            left: 20px;
+            top: 5%;
+            transform: translateY(-50%) scale(0);
+            width: 100px;
+            height: 100px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            opacity: 0;
+        }
+        .store-btn.visible {
+            transform: translateY(-50%) scale(1);
+            opacity: 1;
+        }
+        .store-btn:hover {
+            background-color: #3e8e41;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(76, 175, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+        @media (max-width: 768px) {
+            .store-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                left: 10px;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // التحكم في الظهور عند التمرير
+    const scrollThreshold = 0.25 * document.body.scrollHeight;
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > scrollThreshold) {
+            storeBtn.classList.add('visible');
+            storeBtn.style.animation = 'pulse 1s infinite';
+        } else {
+            storeBtn.classList.remove('visible');
+            storeBtn.style.animation = 'none';
+        }
+    });
+
+    // تغيير الأيقونة عند الانتقال بين الصفحات
+    document.addEventListener('DOMContentLoaded', function() {
+        // تحقق إذا كنا في صفحة Main.html
+        if (window.location.pathname.includes('Main.html')) {
+            storeBtn.href = 'index.html';
+            storeBtn.innerHTML = '<i class="fas fa-arrow-left"></i>';
+            storeBtn.title = 'رجوع إلى الصفحة الرئيسية';
+        } else {
+            storeBtn.href = 'Main.html';
+            storeBtn.innerHTML = '<i class="fas fa-store"></i>';
+            storeBtn.title = 'انتقل إلى Mina';
+        }
+    });
+
+    // إضافة مكتبة Font Awesome إذا لم تكن موجودة
+    if (!document.querySelector('link[href*="font-awesome"]')) {
+        const faLink = document.createElement('link');
+        faLink.rel = 'stylesheet';
+        faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
+        document.head.appendChild(faLink);
+    }
+</script>
+
 </body>
 </html>

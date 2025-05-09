@@ -1,94 +1,321 @@
 // بيانات المنتجات البيطرية
 const menuItems = [
     {
-       id: 1,
-        name: "علاج الديدان للقطط",
-        description: "علاج فعال للديدان المعوية للقطط، عبوة تحتوي على 4 أقراص",
-        price: 35,
-        category: "treatments",
-        image: "https://petite-store.com/cdn/shop/articles/10.png?crop=center&height=810&v=1721122150&width=1080",
-        popular: true
+       
+    ///الخدمات/////
+    
+        id: 1,
+        name: "شامبو",
+        description: "",
+        price: 7500,
+        category: "care",
+        image: "",
+        popular: false
     },
     {
         id: 2,
-        name: "طوق برغوث للكلاب",
-        description: "طوق وقائي ضد البراغيث والقراد للكلاب، فعال لمدة 8 أشهر",
-        price: 45,
-        category: "prevention",
-        image: "https://images.unsplash.com/photo-1582456891955-9d9a7af45b9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        name: "ويبس قطط",
+        description: "منتج لتنعيم وتلميع فراء القطط، يحافظ على صحة الشعر",
+        price: 3500,
+        category: "care",
+        image: "",
         popular: false
     },
     {
         id: 3,
-        name: "سرير قطط مريح",
-        description: "سرير ناعم ومريح للقطط مع وسادة قابلة للإزالة والغسل",
-        price: 120,
-        category: "beds",
-        image: "https://images.unsplash.com/photo-1594149929911-78975a43d4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        popular: true
+        name: "حليب قطط",
+        description: "حليب مغذي للقطط الصغيرة، سهل الهضم",
+        price: 15000,
+        category: "care",
+        image: "",
+        popular: false
     },
     {
         id: 4,
-        name: "رمل قطط عالي الامتصاص",
-        description: "رمل عضوي عالي الامتصاص للقطط، خالي من الغبار والعطور",
-        price: 25,
-        category: "sand",
-        image: "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        name: "حليب قطط",
+        description: "حليب عالي الجودة مدعم بالفيتامينات للقطط",
+        price: 10000,
+        category: "care",
+        image: "",
         popular: false
     },
     {
         id: 5,
-        name: "دراي فوود للكلاب الصغيرة",
-        description: "طعام جاف متكامل للجراء، 5 كجم، غني بالبروتين والفيتامينات",
-        price: 180,
-        category: "dry_food",
-        image: "https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        popular: true
+        name: "ألعاب",
+        description: "ألعاب متنوعة للحيوانات الأليفة",
+        price: 9,
+        category: "الألعاب",
+        image: "",
+        popular: false
     },
     {
         id: 6,
-        name: "علبة طعام للقطط",
-        description: "علبة طعام معلبة للقطط بنكهة السمك، 85 جرام",
-        price: 15,
-        category: "canned_food",
-        image: "https://images.unsplash.com/photo-1571566882372-1598d03b449c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        name: "عصارة كرات شعر",
+        description: "علاج فعال لإزالة كرات الشعر من أمعاء القطط",
+        price: 9750,
+        category: "treatments",
+        image: "",
         popular: false
     },
     {
         id: 7,
-        name: "شامبو للكلاب الحساسة",
-        description: "شامبو لطيف للكلاب ذات البشرة الحساسة، 500 مل",
-        price: 55,
-        category: "care",
-        image: "https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        popular: true
+        name: "عصارة كالسيوم",
+        description: "مكمل غذائي غني بالكالسيوم لصحة العظام",
+        price: 9750,
+        category: "treatments",
+        image: "",
+        popular: false
     },
     {
         id: 8,
-        name: "لعبة عظم مطاطي",
-        description: "لعبة عظم مطاطي متينة للكلاب، مقاومة للمضغ",
-        price: 30,
-        category: "accessories",
-        image: "https://images.unsplash.com/photo-1551189014-10acb1e1b442?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        name: "عصارات فيتامينات",
+        description: "مكمل غذائي متعدد الفيتامينات للحيوانات الأليفة",
+        price: 9750,
+        category: "treatments",
+        image: "",
         popular: false
     },
     {
         id: 9,
-        name: "حقيبة نقل للقطط",
-        description: "حقيبة نقل للقطط ذات تهوية جيدة، مع فتحة علوية وجانبية",
-        price: 150,
-        category: "beds",
-        image: "https://images.unsplash.com/photo-1591769225440-811ad7d6eab2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        popular: true
+        name: "معطر فم",
+        description: "معطر فم لتحسين رائحة النفس للكلاب والقطط",
+        price: 10000,
+        category: "care",
+        image: "",
+        popular: false
     },
     {
         id: 10,
-        name: "فرشاة تنظيف الأسنان",
-        description: "فرشاة أسنان للكلاب مع معجون أسنان بنكهة الدجاج",
-        price: 40,
+        name: " عناية تدريب كلاب",
+        description: "عناية تدريب متخصصة للكلاب",
+        price: 10000,
         category: "care",
-        image: "https://images.unsplash.com/photo-1582456891955-9d9a7af45b9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        image: "",
+        popular: false
+    },
+    {
+        id: 11,
+        name: "سيريلاك طيور",
+        description: "غذاء متكامل للطيور الصغيرة",
+        price: 8500,
+        category: "الطيور",
+        image: "",
+        popular: false
+    },
+    {
+        id: 12,
+        name: "بخاخ التهاب فموي",
+        description: "بخاخ لعلاج التهابات الفم واللثة",
+        price: 10000,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 13,
+        name: "عصارات فيتامينات",
+        description: "مكمل فيتامينات سائل للحيوانات الأليفة",
+        price: 10000,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 14,
+        name: "دراي شامبو",
+        description: "شامبو جاف لتنظيف الحيوانات الأليفة بدون ماء",
+        price: 8000,
+        category: "care",
+        image: "",
+        popular: false
+    },
+    {
+        id: 15,
+        name: "حليب مع كالسيوم",
+        description: "حليب مدعم بالكالسيوم لنمو صحي للعظام",
+        price: 13,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 16,
+        name: "حليب معادن و فيتامينات",
+        description: "حليب غني بالمعادن والفيتامينات الأساسية",
+        price: 13000,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 17,
+        name: "منظفات عيون",
+        description: "محلول لطيف لتنظيف عيون الحيوانات الأليفة",
+        price: 5500,
+        category: "care",
+        image: "",
+        popular: false
+    },
+    {
+        id: 18,
+        name: "منظفات اذن",
+        description: "محلول آمن لتنظيف آذان الحيوانات الأليفة",
+        price: 5500,
+        category: "care",
+        image: "",
+        popular: false
+    },
+    {
+        id: 19,
+        name: "حليب قطط وكلاب",
+        description: "حليب مناسب لكل من القطط والكلاب الصغيرة",
+        price: 10250,
+        category: "care",
+        image: "",
+        popular: false
+    },
+    {
+        id: 20,
+        name: "قطرة تنظيف اذان",
+        description: "قطرات لتنظيف وتطهير آذان الحيوانات الأليفة",
+        price: 8500,
+        category: "العناية",
+        image: "",
+        popular: false
+    },
+    {
+        id: 21,
+        name: "منظف اذن",
+        description: "محلول متخصص لتنظيف آذان الحيوانات الأليفة",
+        price: 8500,
+        category: "care",
+        image: "",
+        popular: false
+    },
+    {
+        id: 22,
+        name: "بخاخات قمل للقطط و الكلاب",
+        description: "بخاخ فعال للقضاء على القمل والبراغيث",
+        price: 10000,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 23,
+        name: "منظفات قدم",
+        description: "منتجات لتنظيف وتطهير أقدام الحيوانات الأليفة",
+        price: 7500,
+        category: "care",
+        image: "",
+        popular: false
+    },
+    {
+        id: 24,
+        name: "شامبو",
+        description: "شامبو لطيف للحيوانات الأليفة",
+        price: 7000,
+        category: "care",
+        image: "",
+        popular: false
+    },
+    {
+        id: 25,
+        name: "شامبو فطريات",
+        description: "شامبو طبي لعلاج الالتهابات الفطرية",
+        price: 10250,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 26,
+        name: "بودرة قطط",
+        description: "بودرة لتنعيم فراء القطط وامتصاص الزيوت",
+        price: 8500,
+        category: "care",
+        image: "",
+        popular: false
+    },
+    {
+        id: 27,
+        name: "قطرات قمل خارجية",
+        description: "قطرات للوقاية من القمل والبراغيث",
+        price: 5000,
+        category: "care",
+        image: "",
+        popular: false
+    },
+    {
+        id: 28,
+        name: "منظف كبد",
+        description: "مكمل غذائي لدعم وظائف الكبد",
+        price: 15000,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 29,
+        name: "عصارة فطريات",
+        description: "علاج سائل للالتهابات الفطرية",
+        price: 15000,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 30,
+        name: "علاج فطريات مرهم",
+        description: "مرهم لعلاج الالتهابات الفطرية الجلدية",
+        price: 10000,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 31,
+        name: "بخاخ فطريات",
+        description: "بخاخ لعلاج الالتهابات الفطرية",
+        price: 10000,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 32,
+        name: "بودرة شعر لحماية القطط",
+        description: "بودرة واقية لشعر القطط",
+        price: 8500,
+        category: "care",
+        image: "",
+        popular: false
+    },
+    {
+        id: 33,
+        name: "قطرات عثة الاذن و التهاباتها",
+        description: "قطرات لعلاج عث الأذن والالتهابات",
+        price: 15000,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 34,
+        name: "بخاخ جروح متميز",
+        description: "بخاخ لعلاج الجروح السطحية",
+        price: 10000,
+        category: "treatments",
+        image: "",
+        popular: false
+    },
+    {
+        id: 35,
+        name: "شراب كالسيوم",
+        description: "شراب غني بالكالسيوم لدعم صحة العظام",
+        price: 15000,
+        category: "treatments",
+        image: "",
         popular: false
     }
-    
 ];
