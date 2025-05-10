@@ -7,11 +7,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    	<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https:;">
+    	<meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+    style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+    font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+    img-src 'self' data: https:;
+    connect-src 'self';
+    frame-src 'none';
+    object-src 'none';
+">
 </head>
 <body>
 	
-	 <a href="https://yourdomain.com/Main.html" class="store-btn" id="dynamicBtn">
+	 <a href="Main.html" class="store-btn" id="dynamicBtn">
     <i class="fas fa-store"></i>
 </a>
     
@@ -179,7 +188,129 @@
     
     
 
+<script>
+    // إضافة مكتبة Font Awesome أولاً إذا لم تكن موجودة
+    if (!document.querySelector('link[href*="font-awesome"]')) {
+        const faLink = document.createElement('link');
+        faLink.rel = 'stylesheet';
+        faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
+        document.head.appendChild(faLink);
+    }
 
+    // إنشاء عنصر الزر ديناميكيًا إذا لم يكن موجودًا
+    const storeBtn = document.getElementById('dynamicBtn') || document.createElement('a');
+    if (!storeBtn.id) {
+        storeBtn.id = 'dynamicBtn';
+        storeBtn.href = 'Main.html';
+        storeBtn.className = 'store-btn';
+        storeBtn.innerHTML = '<i class="fas fa-store"></i>';
+        storeBtn.title = 'انتقل إلى Mina';
+        document.body.appendChild(storeBtn);
+    }
+
+    // إضافة الأنماط
+    const style = document.createElement('style');
+    style.textContent = `
+        .store-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            transform: scale(0);
+            width: 80px;
+            height: 80px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            opacity: 0;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+        .store-btn.visible {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .store-btn:hover {
+            background-color: #3e8e41;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+        @media (max-width: 768px) {
+            .store-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // التحكم في الظهور عند التمرير
+    function calculateScrollThreshold() {
+        // حساب 25% من ارتفاع الصفحة من الأسفل
+        const pageHeight = document.documentElement.scrollHeight;
+        const viewportHeight = window.innerHeight;
+        return pageHeight - viewportHeight - (0.25 * pageHeight);
+    }
+
+    let scrollThreshold = calculateScrollThreshold();
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
+    function updateButtonVisibility() {
+        if (lastScrollY > scrollThreshold) {
+            storeBtn.classList.add('visible');
+            storeBtn.style.animation = 'pulse 1.5s infinite';
+        } else {
+            storeBtn.classList.remove('visible');
+            storeBtn.style.animation = 'none';
+        }
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+            window.requestAnimationFrame(updateButtonVisibility);
+            ticking = true;
+        }
+    });
+
+    // إعادة حساب العتبة عند تغيير حجم النافذة
+    window.addEventListener('resize', function() {
+        scrollThreshold = calculateScrollThreshold();
+    });
+
+    // تحديث الزر حسب الصفحة الحالية
+    function updateButtonForPage() {
+        const isMainPage = window.location.pathname.includes('Main.html');
+        storeBtn.href = isMainPage ? 'index.html' : 'Main.html';
+        storeBtn.innerHTML = isMainPage ? '<i class="fas fa-arrow-left"></i>' : '<i class="fas fa-store"></i>';
+        storeBtn.title = isMainPage ? 'رجوع إلى الصفحة الرئيسية' : 'انتقل إلى Mina';
+    }
+
+    // تحديث الزر عند تحميل الصفحة وعند تغيير التاريخ
+    document.addEventListener('DOMContentLoaded', function() {
+        updateButtonForPage();
+        scrollThreshold = calculateScrollThreshold();
+    });
+    window.addEventListener('popstate', updateButtonForPage);
+</script>
 
 </body>
 </html>
