@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    	<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https:;">
 </head>
 <body>
 	
-	 <a href="Main.html" class="store-btn" id="dynamicBtn">
+	 <a href="https://yourdomain.com/Main.html" class="store-btn" id="dynamicBtn">
     <i class="fas fa-store"></i>
 </a>
     
@@ -123,7 +124,7 @@
                 <span class="nav-label">الرئيسية</span>
             </a>
             
-            <a href="index.html" class="nav-item">
+            <a href="Main.html" class="nav-item">
                 <div class="nav-icon-container">
                     <i class="fas fa-info-circle"></i>
                 </div>
@@ -154,15 +155,12 @@
         </div>
         
         <div class="expanded-menu">
-            <a href="contact.html" class="expanded-item">
-                <i class="fas fa-comment-dots"></i>
-                <span>الدعم الفني</span>
-            </a>
-            <a href="about.html" class="expanded-item">
+            
+            <a href="Main.html" class="expanded-item">
                 <i class="fas fa-info-circle"></i>
                 <span>عن العيادة</span>
             </a>
-            <a href="services.html" class="expanded-item">
+            <a href="Main.html" class="expanded-item">
                 <i class="fas fa-clinic-medical"></i>
                 <span>خدماتنا</span>
             </a>
@@ -181,100 +179,7 @@
     
     
 
-<script>
-    // إنشاء عنصر الزر ديناميكيًا إذا لم يكن موجودًا
-    const storeBtn = document.getElementById('dynamicBtn') || document.createElement('a');
-    if (!storeBtn.id) {
-        storeBtn.id = 'dynamicBtn';
-        storeBtn.href = 'Main.html';
-        storeBtn.className = 'store-btn';
-        storeBtn.innerHTML = '<i class="fas fa-store"></i>';
-        document.body.appendChild(storeBtn);
-    }
 
-    // إضافة الأنماط
-    const style = document.createElement('style');
-    style.textContent = `
-        .store-btn {
-            position: fixed;
-            left: 20px;
-            top: 5%;
-            transform: translateY(-50%) scale(0);
-            width: 100px;
-            height: 100px;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-            opacity: 0;
-        }
-        .store-btn.visible {
-            transform: translateY(-50%) scale(1);
-            opacity: 1;
-        }
-        .store-btn:hover {
-            background-color: #3e8e41;
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(76, 175, 80, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
-        }
-        @media (max-width: 768px) {
-            .store-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-                left: 10px;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-
-    // التحكم في الظهور عند التمرير
-    const scrollThreshold = 0.25 * document.body.scrollHeight;
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > scrollThreshold) {
-            storeBtn.classList.add('visible');
-            storeBtn.style.animation = 'pulse 1s infinite';
-        } else {
-            storeBtn.classList.remove('visible');
-            storeBtn.style.animation = 'none';
-        }
-    });
-
-    // تغيير الأيقونة عند الانتقال بين الصفحات
-    document.addEventListener('DOMContentLoaded', function() {
-        // تحقق إذا كنا في صفحة Main.html
-        if (window.location.pathname.includes('Main.html')) {
-            storeBtn.href = 'index.html';
-            storeBtn.innerHTML = '<i class="fas fa-arrow-left"></i>';
-            storeBtn.title = 'رجوع إلى الصفحة الرئيسية';
-        } else {
-            storeBtn.href = 'Main.html';
-            storeBtn.innerHTML = '<i class="fas fa-store"></i>';
-            storeBtn.title = 'انتقل إلى Mina';
-        }
-    });
-
-    // إضافة مكتبة Font Awesome إذا لم تكن موجودة
-    if (!document.querySelector('link[href*="font-awesome"]')) {
-        const faLink = document.createElement('link');
-        faLink.rel = 'stylesheet';
-        faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
-        document.head.appendChild(faLink);
-    }
-</script>
 
 </body>
 </html>
