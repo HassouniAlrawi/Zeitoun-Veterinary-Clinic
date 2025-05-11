@@ -3,660 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>22 Clinic - عيادة تونتي تو لطب الأسنان</title>
+    <title>عيادة الزيتون البيطرية </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    	<meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+    style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+    font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+    img-src 'self' data: https:;
+    connect-src 'self';
+    frame-src 'none';
+    object-src 'none';
+">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">
-                    22 Clinic
-                    <i class="fas fa-tooth"></i>
-                </a>
-                
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <ul class="nav-links">
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#services">خدماتنا</a></li>
-                    <li><a href="#about">عن العيادة</a></li>
-                    <li><a href="#contact">تواصل معنا</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>عيادة تونتي تو لطب الأسنان</h1>
-            <p>نقدم رعاية أسنان عالية الجودة باستخدام أحدث التقنيات وبتكلفة معقولة</p>
-            <a href="#booking" class="btn btn-primary">احجز موعدك الآن</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>خدماتنا</h2>
-                <p>نقدم مجموعة واسعة من خدمات طب الأسنان التجميلية والعلاجية</p>
+	
+	 <a href="Main.html" class="store-btn" id="dynamicBtn">
+    <i class="fas fa-store"></i>
+</a>
+    
+    <div class="app-container">
+        <!-- شريط التنقل العلوي -->
+        <nav class="top-nav">
+            <div class="nav-brand">
+                <i class="fas fa-paw logo-icon"></i>
+                <span>عيادة الزيتون البيطرية</span>
+            </div>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="ابحث عن المنتجات...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="cart-count">0</span>
+                </div>
             </div>
             
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="new1.JPG" alt="ابتسامة المشاهير">
-                    </div>
-                    <div class="service-content">
-                        <h3>ابتسامة المشاهير</h3>
-                        <p>تصميم ابتسامة مثالية تعكس جمالك الطبيعي.</p>
-                        
-                        <div class="service-price"> 250,000 دينار
+        </nav>
 
-</div>
-        <a href="#booking" class="booking-btn">احجز الآن</a>
-                    </div>
+        <!-- المحتوى الرئيسي -->
+        <div class="main-content">
+            <!-- شريط التصنيفات -->
+            <div class="categories-bar">
+                <div class="category-filter active" data-category="all">الكل</div>
+                <div class="category-filter" data-category="treatments">
+                    <i class="fas fa-syringe"></i>
+                    <span>علاجات</span>
                 </div>
+                <div class="category-filter" data-category="accessories">
+                    <i class="fas fa-bone"></i>
+                    <span>اكسسوارات وألعاب</span>
+                </div>
+                <div class="category-filter" data-category="beds">
+                    <i class="fas fa-bed"></i>
+                    <span>منامات وبوكسات نقل</span>
+                </div>
+                <div class="category-filter" data-category="sand">
+                    <i class="fas fa-square"></i>
+                    <span>رمل</span>
+                </div>
+                <div class="category-filter" data-category="dry_food">
+                    <i class="fas fa-drumstick-bite"></i>
+                    <span>دراي فوود</span>
+                </div>
+                <div class="category-filter" data-category="canned_food">
+                    <i class="fas fa-can"></i>
+                    <span>معلبات ومغلفات</span>
+                </div>
+                <div class="category-filter" data-category="care">
+                    <i class="fas fa-spa"></i>
+                    <span>منتجات عناية</span>
+                </div>
+                <div class="category-filter" data-category="prevention">
+                    <i class="fas fa-shield-virus"></i>
+                    <span>مكافئات</span>
+                    
+                </div>
+                <div class="category-filter" data-category="birds">
+    <i class="fas fa-dove"></i>
+    <span>منتجات الطيور</span>
+</div>
+            </div>
+
+            <!-- بطاقات المنتجات -->
+            <div class="products-grid" id="menu-container">
+                <!-- سيتم تعبئتها عبر JavaScript -->
+            </div>
+        </div>
+<br>
+        <!-- سلة التسوق العائمة -->
+        <div class="floating-cart">
+            <div class="cart-header">
+                <h3>سلة التسوق</h3>
+                <span class="close-cart"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="cart-items" id="cart-items">
+            	
+                <!-- سيتم تعبئتها عبر JavaScript -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>المجموع:</span>
+                    <span class="total-price">0 د.ع</span>
+                </div>
+                <button class="checkout-btn">إتمام الطلب</button>
                 
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="IMG_20250504_165524_059.JPG" alt="القشور الخزفية">
-                    </div>
-                    <div class="service-content">
-                        <h3>القشور الخزفية (فينير + إيماكس)</h3>
-                        <p>لتجميل شكل الأسنان وتحقيق مظهر متناسق وطبيعي.</p>
-                <div class="service-price">250,000 دينار</div>
-        <a href="#booking" class="booking-btn">احجز الآن</a>
+                <br>
+            </div>
+            <br>
+        </div>
+        <br>
+    </div>
+    
+<br>
+	<br>
+		<br>
+    <!-- شريط التنقل السفلي -->
+    <nav class="elegant-bottom-nav">
+        <div class="nav-backdrop"></div>
         
-                    </div>
+        <div class="nav-items">
+            <a href="index.html" class="nav-item" data-active>
+                <div class="nav-icon-container">
+                    <i class="fas fa-home nav-icon"></i>
                 </div>
-                
-                <!-- Service 3 -->
-<div class="service-card">
-    <div class="service-img">
-        <img src="neo.png" alt="زراعة الأسنان">
-    </div>
-    <div class="service-content">
-        <h3>زراعة الأسنان</h3>
-        <p>بتقنيات متقدمة لضمان راحة وسرعة في التعافي.</p>
-        <div class="service-price">550 دولار</div>
-        <a href="#booking" class="booking-btn">احجز الآن</a>
-    </div>
-</div>
-
-<!-- Service 4 -->
-<div class="service-card">
-    <div class="service-img">
-        <img src="new3.PNG" alt="علاج حشوة الجذور">
-    </div>
-    <div class="service-content">
-        <h3>علاج حشوة الجذور (عصب الأسنان)</h3>
-        <p>بدقة عالية وأحدث الأجهزة لتقليل الألم وزيادة الفعالية.</p>
-        <div class="service-price">250,000 دينار</div>
-        <a href="#booking" class="booking-btn">احجز الآن</a>
-    </div>
-</div>
-
-<!-- Service 5 -->
-<div class="service-card">
-    <div class="service-img">
-        <img src="new5.png" alt="الحشوات التجميلية">
-    </div>
-    <div class="service-content">
-        <h3>‏غلق الفراغات بالحشوات التجميلية</h3>
-        <p>لابتسامة أكثر بياضًا ومظهرًا طبيعيًا.</p>
-        <div class="service-price">100,000 دينار</div>
-        <a href="#booking" class="booking-btn">احجز الآن</a>
-    </div>
-</div>
-
-<div class="service-card">
-    <div class="service-img">
-        <img src="new2.png" alt="الحشوات التجميلية">
-    </div>
-    <div class="service-content">
-        <h3>استبدال الحشوات المعدنية</h3>
-        <p>لابتسامة أكثر بياضًا ومظهرًا طبيعيًا.</p>
-        <div class="service-price">100,000 دينار</div>
-        <a href="#booking" class="booking-btn">احجز الآن</a>
-    </div>
-</div>
-
-<!-- Service 6 -->
-<div class="service-card">
-    <div class="service-img">
-        <img src="IMG_20250504_085847_005.JPG" alt="تبييض الأسنان">
-    </div>
-    <div class="service-content">
-        <h3>تبييض الأسنان بالليزر</h3>
-        <p>لنتائج فورية وأسنان أكثر إشراقًا.</p>
-        <div class="service-price">200,000 دينار</div>
-        <a href="#booking" class="booking-btn">احجز الآن</a>
-    </div>
-</div>
-
-<!-- Service 7 -->
-<div class="service-card">
-    <div class="service-img">
-        <img src="nweh.png" alt="تنظيف الأسنان">
-    </div>
-    <div class="service-content">
-        <h3>تنظيف الأسنان بأحدث التقنيات</h3>
-        <p>لإزالة الجير والتصبغات والحفاظ على صحة الفم.</p>
-        <div class="service-price">75,000 دينار</div>
-        <a href="#booking" class="booking-btn">احجز الآن</a>
-    </div>
-</div>
-
-<!-- Service 8 -->
-<div class="service-card">
-    <div class="service-img">
-        <img src="hggd_edit_778337830070169.jpg" alt="علاجات أخرى">
-    </div>
-    <div class="service-content">
-        <h3>علاجات أخرى حسب احتياج كل حالة</h3>
-        <p>تقييم دقيق وخطة علاج مخصصة لكل مريض.</p>
-        <div class="service-price">أسعار حسب الحالة</div>
-        <a href="#booking" class="booking-btn">احجز الآن</a>
-    </div>
-</div>
-</div>
+                <span class="nav-label">الرئيسية</span>
+            </a>
+            
+            <a href="Main.html" class="nav-item">
+                <div class="nav-icon-container">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <span class="nav-label">عن العيادة</span>
+            </a>
+            
+            <div class="nav-item nav-expand-btn">
+                <div class="nav-icon-container">
+                    <i class="fas fa-ellipsis-h nav-icon"></i>
+                </div>
+                <span class="nav-label">المزيد</span>
             </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>عن عيادة تونتي تو</h3>
-                    <p>عيادة 22 Clinic هي عيادة متخصصة في طب وتجميل الأسنان، نقدم خدماتنا بأعلى معايير الجودة والكفاءة.</p>
-                    <p>نتميز بفريق طبي متخصص ومؤهل، واستخدام أحدث التقنيات والأجهزة الطبية لضمان أفضل النتائج لمرضانا.</p>
-                    <p>نهتم بتجربة المريض ونحرص على توفير بيئة مريحة وعلاج خالٍ من الألم قدر الإمكان.</p>
-                    <a href="#contact" class="btn">تواصل معنا</a>
+            
+            <a href="adoption.html" class="nav-item">
+                <div class="nav-icon-container">
+                    <i class="fas fa-paw nav-icon"></i>
                 </div>
-                <div class="about-image">
-                    <img src="h44.PNG" alt="عن العيادة">
+                <span class="nav-label">التبني</span>
+            </a>
+            
+            <div class="nav-item nav-cart-btn">
+                <div class="nav-icon-container">
+                    <i class="fas fa-shopping-cart nav-icon"></i>
+                    <span class="cart-badge">0</span>
                 </div>
+                <span class="nav-label">السلة</span>
             </div>
-        </div>
-    </section>
-<!-- Add this after the Services section and before the About section -->
-
-<!-- Why Choose Us Section -->
-<section class="section" id="why-us">
-    <div class="container">
-        <div class="section-title">
-            <h2>لماذا تختار عيادة تونتي تو؟</h2>
-            <p>نحن نقدم تجربة فريدة ورعاية شاملة لصحة أسنانك وجمال ابتسامتك</p>
         </div>
         
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-content">
-                    <h3>خبرة واسعة</h3>
-                    <p>فريق من الأطباء المتخصصين ذوي الخبرة الطويلة في مختلف مجالات طب الأسنان</p>
-                </div>
-            </div>
+        <div class="expanded-menu">
             
-            <div class="service-card">
-                <div class="service-content">
-                    <h3>أحدث التقنيات</h3>
-                    <p>نستخدم أحدث الأجهزة والتقنيات العالمية في تشخيص وعلاج الأسنان</p>
-                </div>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-content">
-                    <h3>معايير السلامة</h3>
-                    <p>نلتزم بأعلى معايير التعقيم والسلامة لحماية صحتك وصحة فريقنا</p>
-                </div>
-            </div>
+            <a href="Main.html" class="expanded-item">
+                <i class="fas fa-info-circle"></i>
+                <span>عن العيادة</span>
+            </a>
+            <a href="Main.html" class="expanded-item">
+                <i class="fas fa-clinic-medical"></i>
+                <span>خدماتنا</span>
+            </a>
+            <a href="offers.html" class="expanded-item">
+                <i class="fas fa-tag"></i>
+                <span>العروض</span>
+            </a>
         </div>
-    </div>
-</section>
+    </nav>
 
-<!-- Booking Form Section -->
-<section class="section" id="booking">
-    <div class="container">
-        <div class="section-title">
-            <h2>حجز موعد</h2>
-        </div>
-        
-        <form id="bookingForm" class="booking-form">
-            <div class="form-group">
-                <input type="text" id="name" placeholder="الاسم" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" id="phone" placeholder="رقم الهاتف" required>
-            </div>
-            <div class="form-group date-group">
-                <input type="date" id="date" required onfocus="this.showPicker()">
-                <label for="date" class="date-placeholder">اختر التاريخ</label>
-            </div>
-            <div class="form-group">
-                <select id="service" required>
-                    <option value="">الخدمة المطلوبة</option>
-                    <option value="ابتسامة المشاهير">ابتسامة المشاهير</option>
-                    <option value="القشور الخزفية (فينير + إيماكس)">القشور الخزفية (فينير + إيماكس)</option>
-                    <option value="زراعة الأسنان بدون جراحة">زراعة الأسنان بدون جراحة</option>
-                    <option value="علاج حشوة الجذور (عصب الأسنان)">علاج حشوة الجذور (عصب الأسنان)</option>
-                    <option value="الحشوات التجميلية">الحشوات التجميلية</option>
-                    <option value="تبييض الأسنان بالليزر">تبييض الأسنان بالليزر</option>
-                    <option value="تنظيف الأسنان">تنظيف الأسنان</option>
-                    <option value="استشارة وتشخيص">استشارة وتشخيص</option>
-                    <option value="علاجات أخرى">علاجات أخرى</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <textarea id="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">تأكيد الحجز</button>
-        </form>
-    </div>
-</section>
-
-<!-- Gallery Section -->
-<section class="section" id="gallery">
-    <div class="container">
-        <div class="section-title">
-            <h2>معرض أعمالنا</h2>
-        </div>
-        
-        <div class="gallery-grid">
-            <!-- الصور -->
-            <div class="gallery-item">
-                <img src="IMG_8431.JPG" alt="عمل 1">
-            </div>
-            <div class="gallery-item">
-                <img src="IMG_20250504_015836_281.jpg" alt="عمل 2">
-            </div>
-            
-            <!-- الفيديوهات مع تأثيرات متقدمة -->
-            <div class="gallery-item video-container">
-                <video class="gallery-video" loop muted playsinline poster="video-poster1.jpg">
-                    <source src="HnVideoEditor_2025_05_04_155046544.mp4" type="video/mp4">
-                </video>
-                <div class="video-controls">
-                    <button class="play-btn"><i class="fas fa-play"></i></button>
-                    <div class="video-time">0:00 / 0:00</div>
-                </div>
-            </div>
-            
-            <div class="gallery-item">
-                <img src="IMG_20250504_020141_464.jpg" alt="عمل 3">
-            </div>
-            
-            <div class="gallery-item video-container">
-                <video class="gallery-video" loop muted playsinline poster="video-poster2.jpg">
-                    <source src="HnVideoEditor_2025_05_04_155944848.mp4" type="video/mp4">
-                </video>
-                <div class="video-controls">
-                    <button class="play-btn"><i class="fas fa-play"></i></button>
-                    <div class="video-time">0:00 / 0:00</div>
-                </div>
-            </div>
-            
-            <div class="gallery-item">
-                <img src="nweh.png" alt="عمل 4">
-            </div>
-            
-            
-            
-            <div class="gallery-item">
-                <img src="hdhdh.jpg" alt="عمل 5">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FAQ Section -->
-<section class="section" id="faq">
-    <div class="container">
-        <div class="section-title">
-            <h2>أسئلة شائعة</h2>
-            <p>إجابات على بعض الأسئلة التي تهم مرضانا</p>
-        </div>
-        
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>كم تستغرق مدة العلاج؟</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>تختلف مدة العلاج حسب الحالة ونوع الإجراء المطلوب، سيتم تحديدها بعد الكشف الأولي</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>هل توجد ضمانات على العلاجات؟</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>نقدم ضمانات على معظم العلاجات وفق شروط محددة يتم توضيحها قبل بدء العلاج</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Testimonials Section -->
-<section class="section" id="testimonials">
-    <div class="container">
-        <div class="section-title">
-            <h2>آراء المراجعين</h2>
-            <p>ما يقول عملاؤنا عن تجربتهم مع عيادة تونتي تو</p>
-        </div>
-        
-        <div class="testimonials-grid">
-            <!-- Testimonial 1 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>تجربة رائعة! فريق محترف وخدمة ممتازة. شعرت براحة كبيرة خلال العلاج وكانت النتائج أفضل من توقعاتي.</p>
-                </div>
-                <div class="testimonial-author">
-                    <h4>أحمد محمد</h4>
-                    <span>زراعة الأسنان</span>
-                </div>
-            </div>
-            
-            <!-- Testimonial 2 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>أشكر دكتور علي على الاحترافية والاهتمام. العيادة نظيفة ومجهزة بأحدث الأجهزة والنتيجة كانت ممتازة.</p>
-                </div>
-                <div class="testimonial-author">
-                    <h4>سارة عبدالله</h4>
-                    <span>ابتسامة المشاهير</span>
-                </div>
-            </div>
-            
-            <!-- Testimonial 3 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p>تجربة ممتازة بكل المقاييس، الأطباء متعاونون ويشرحون كل التفاصيل. أنصح الجميع بهذه العيادة.</p>
-                </div>
-                <div class="testimonial-author">
-                    <h4>خالد إبراهيم</h4>
-                    <span>تقويم الأسنان</span>
-                </div>
-            </div>
-            
-            <!-- Testimonial 4 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>لم أتوقع أن تكون النتيجة بهذا الجمال! شكراً لفريق العيادة على الاحترافية والرعاية.</p>
-                </div>
-                <div class="testimonial-author">
-                    <h4>نورا كريم</h4>
-                    <span>فينير الأسنان</span>
-                </div>
-            </div>
-            
-            <!-- Testimonial 5 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p>عيادة ممتازة بكل المقاييس، نظافة وتعقيم ممتازين، فريق طبي على أعلى مستوى من الاحترافية.</p>
-                </div>
-                <div class="testimonial-author">
-                    <h4>علي حسن</h4>
-                    <span>حشو وتبييض</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>تواصل معنا</h2>
-                <p>نحن هنا لمساعدتك في أي استفسار أو لحجز موعد</p>
-            </div>
-            
-            <div class="contact-info">
-                <div class="contact-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>العنوان</h3>
-                    <p>بغداد المنصور تقاطع الرواد<br>فرع بابيت مول عمارة العز</p>
-                </div>
-                
-                <div class="contact-card">
-                    <i class="fas fa-phone-alt"></i>
-                    <h3>الهاتف</h3>
-                    <a href="https://wa.me/07704511116">07704511116 ✆</a>
-                </div>
-                
-                <div class="contact-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>ساعات العمل</h3>
-                    <p>يومياً من 9 صباحاً حتى 9 مساءً</p>
-                </div>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://www.instagram.com/22clinic.iq?igsh=MTByYTRxc2xoem5uZg==" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/share/1AVy7CAsTb/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="tel:07704511116"><i class="fas fa-phone-alt"></i></a>
-                <a href="https://wa.me/07704511116" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <a href="#" class="footer-logo">22 Clinic</a>
-            
-            <div class="footer-links">
-                <a href="#home">الرئيسية</a>
-                <a href="#services">خدماتنا</a>
-                <a href="#about">عن العيادة</a>
-                <a href="#contact">تواصل معنا</a>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 22 Clinic - جميع الحقوق محفوظة</p>
-            </div>
-        </div>
-    </footer>
-
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    
+    
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            // Change icon
-            const icon = mobileMenuBtn.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 60,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add shadow to navbar on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = 'none';
-            }
-        });
-        
-        
-        
-        
-        // Booking Form Submission
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const date = document.getElementById('date').value;
-    const service = document.getElementById('service').value;
-    const notes = document.getElementById('notes').value;
-    
-    const message = `حجز موعد جديد%0A%0Aالاسم: ${name}%0Aالهاتف: ${phone}%0Aالتاريخ: ${date}%0Aالخدمة: ${service}%0Aملاحظات: ${notes || 'لا يوجد'}`;
-    
-    window.open(`https://wa.me/+964 770 451 1116?text=${message}`, '_blank');
-});
-
-// FAQ Toggle
-document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        const icon = question.querySelector('i');
-        
-        answer.classList.toggle('active');
-        icon.classList.toggle('fa-chevron-up');
-        icon.classList.toggle('fa-chevron-down');
-    });
-});
-// Testimonials Slider (optional)
-let currentTestimonial = 0;
-const testimonials = document.querySelectorAll('.testimonial-card');
-
-function showTestimonial(index) {
-    testimonials.forEach((testimonial, i) => {
-        testimonial.style.display = i === index ? 'block' : 'none';
-    });
-}
-
-// Uncomment below if you want a slider instead of grid
-/*
-function nextTestimonial() {
-    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-    showTestimonial(currentTestimonial);
-}
-
-// Auto-rotate testimonials every 5 seconds
-setInterval(nextTestimonial, 5000);
-showTestimonial(0);
-*/
-// إضافة JavaScript للتحكم في الفيديو
-document.addEventListener('DOMContentLoaded', function() {
-    const videoContainers = document.querySelectorAll('.video-container');
-    
-    videoContainers.forEach(container => {
-        const video = container.querySelector('.gallery-video');
-        const playBtn = container.querySelector('.play-btn');
-        const videoTime = container.querySelector('.video-time');
-        
-        // تحديث وقت الفيديو
-        video.addEventListener('timeupdate', function() {
-            const currentTime = formatTime(video.currentTime);
-            const duration = formatTime(video.duration);
-            videoTime.textContent = `${currentTime} / ${duration}`;
-        });
-        
-        // تشغيل/إيقاف الفيديو
-        playBtn.addEventListener('click', function() {
-            if (video.paused) {
-                video.play();
-                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            } else {
-                video.pause();
-                playBtn.innerHTML = '<i class="fas fa-play"></i>';
-            }
-        });
-        
-        // عند انتهاء الفيديو
-        video.addEventListener('ended', function() {
-            playBtn.innerHTML = '<i class="fas fa-play"></i>';
-        });
-    });
-    
-    function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    // إضافة مكتبة Font Awesome أولاً إذا لم تكن موجودة
+    if (!document.querySelector('link[href*="font-awesome"]')) {
+        const faLink = document.createElement('link');
+        faLink.rel = 'stylesheet';
+        faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
+        document.head.appendChild(faLink);
     }
-});
+
+    // إنشاء عنصر الزر ديناميكيًا إذا لم يكن موجودًا
+    const storeBtn = document.getElementById('dynamicBtn') || document.createElement('a');
+    if (!storeBtn.id) {
+        storeBtn.id = 'dynamicBtn';
+        storeBtn.href = 'Main.html';
+        storeBtn.className = 'store-btn';
+        storeBtn.innerHTML = '<i class="fas fa-store"></i>';
+        storeBtn.title = 'انتقل إلى Mina';
+        document.body.appendChild(storeBtn);
+    }
+
+    // إضافة الأنماط
+    const style = document.createElement('style');
+    style.textContent = `
+        .store-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            transform: scale(0);
+            width: 80px;
+            height: 80px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            opacity: 0;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+        .store-btn.visible {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .store-btn:hover {
+            background-color: #3e8e41;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+        @media (max-width: 768px) {
+            .store-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // التحكم في الظهور عند التمرير
+    function calculateScrollThreshold() {
+        // حساب 25% من ارتفاع الصفحة من الأسفل
+        const pageHeight = document.documentElement.scrollHeight;
+        const viewportHeight = window.innerHeight;
+        return pageHeight - viewportHeight - (0.25 * pageHeight);
+    }
+
+    let scrollThreshold = calculateScrollThreshold();
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
+    function updateButtonVisibility() {
+        if (lastScrollY > scrollThreshold) {
+            storeBtn.classList.add('visible');
+            storeBtn.style.animation = 'pulse 1.5s infinite';
+        } else {
+            storeBtn.classList.remove('visible');
+            storeBtn.style.animation = 'none';
+        }
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+            window.requestAnimationFrame(updateButtonVisibility);
+            ticking = true;
+        }
+    });
+
+    // إعادة حساب العتبة عند تغيير حجم النافذة
+    window.addEventListener('resize', function() {
+        scrollThreshold = calculateScrollThreshold();
+    });
+
+    // تحديث الزر حسب الصفحة الحالية
+    function updateButtonForPage() {
+        const isMainPage = window.location.pathname.includes('Main.html');
+        storeBtn.href = isMainPage ? 'index.html' : 'Main.html';
+        storeBtn.innerHTML = isMainPage ? '<i class="fas fa-arrow-left"></i>' : '<i class="fas fa-store"></i>';
+        storeBtn.title = isMainPage ? 'رجوع إلى الصفحة الرئيسية' : 'انتقل إلى Mina';
+    }
+
+    // تحديث الزر عند تحميل الصفحة وعند تغيير التاريخ
+    document.addEventListener('DOMContentLoaded', function() {
+        updateButtonForPage();
+        scrollThreshold = calculateScrollThreshold();
+    });
+    window.addEventListener('popstate', updateButtonForPage);
+</script>
+    
+    
 
 
-    </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"93dd373bdccabe29","version":"2025.4.0-1-g37f21b1","r":1,"token":"7c2a7bef9f0f411693a710a2aa0c6df4","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+
 </body>
 </html>
