@@ -1,9 +1,7 @@
 // بيانات المنتجات البيطرية
 const menuItems = [
     {
-       
     ///الخدمات/////
-    
         id: 1,
         name: "شامبو",
         description: "",
@@ -310,30 +308,195 @@ const menuItems = [
         popular: false
     },
     {
-    id: 35,
-    name: "شراب كالسيوم",
-    description: "شراب غني بالكالسيوم لدعم صحة العظام",
-    price: 15000,
-    category: "treatments",
-    image: "IMG_20250510_101739_211.jpg",
-    popular: false
-},  // <-- هنا كانت الفاصلة ناقصة
-{
-    id: 36,
-    name: "علاج التهاب عيون ",
-    description: "",
-    price: 15000,
-    category: "treatments",
-    image: "IMG_20250510_101732_085.jpg",
-    popular: false
-},  // <-- وهنا أيضاً
-{
-    id: 37,
-    name: "علاج منع تساقط الشعر ",
-    description: "",
-    price: 11000,
-    category: "treatments",
-    image: "IMG_20250510_101737_664.jpg",
-    popular: false
-}
+        id: 35,
+        name: "شراب كالسيوم",
+        description: "شراب غني بالكالسيوم لدعم صحة العظام",
+        price: 15000,
+        category: "treatments",
+        image: "IMG_20250510_101739_211.jpg",
+        popular: false
+    },  
+    {
+        id: 36,
+        name: "علاج التهاب عيون ",
+        description: "",
+        price: 15000,
+        category: "treatments",
+        image: "IMG_20250510_101732_085.jpg",
+        popular: false
+    }, 
+    {
+        id: 37,
+        name: "علاج منع تساقط الشعر ",
+        description: "",
+        price: 11000,
+        category: "treatments",
+        image: "IMG_20250510_101737_664.jpg",
+        popular: false
+    },
+    {
+        id: 54,
+        name: "مغلفات ",
+        description: "مغلفات طعام للحيوانات الأليفة",
+        price: 1250,
+        category: "food",
+        image: "IMG_20250511_140859_410.jpg",
+        popular: false
+    },
+
+   
+    {
+        id: 38,
+        name: "قلادة رقبة للقطط",
+        description: "قلادة مريحة وآمنة للقطط",
+        price: 1750,
+        category: "accessories",
+        image: "IMG_20250511_140931_659.jpg",
+        popular: false
+    },
+    {
+        id: 39,
+        name: "بوكس نقل حديد",
+        description: "صندوق نقل معدني للحيوانات الأليفة",
+        price: 14500,
+        category: "beds",
+        image: "IMG_20250511_140919_428.jpg",
+        popular: false
+    },
+
+    // قسم الرمل
+    {
+        id: 40,
+        name: "رمل 5 لتر",
+        description: "رمل للقطط سعة 5 لتر",
+        price: 4750,
+        category: "sand",
+        image: "IMG_20250511_140909_221.jpg",
+        popular: false
+    },
+    {
+        id: 41,
+        name: "رمل 10 لتر",
+        description: "رمل للقطط سعة 10 لتر",
+        price: 9500,
+        category: "sand",
+        image: "IMG_20250511_140914_563.jpg",
+        popular: false
+    },
+    {
+        id: 42,
+        name: "رمل قطط لتر بوكس",
+        description: "رمل خاص بصندوق فضلات القطط",
+        price: 8500,
+        category: "sand",
+        image: "IMG_20250511_140927_453.jpg",
+        popular: false
+    },
+
+    // قسم الدراي فود
+    {
+        id: 43,
+        name: "دراي فود درايفوود",
+        description: "طعام جاف للقطط من درايفوود",
+        price: 15000,
+        category: "dry_food",
+        image: "IMG_20250511_140935_819.jpg",
+        popular: false
+    },
+    {
+        id: 44,
+        name: "رويال كانين درايفوود",
+        description: "طعام طبي للكلاب من رويال كانين",
+        price: 35000,
+        category: "dry_food",
+        image: "IMG_20250511_140942_708.jpg",
+        popular: false
+    },
+    {
+        id: 45,
+        name: "رفلكس كيلوين",
+        description: "دراي فود عالي الجودة للقطط",
+        price: 10000,
+        category: "dry_food",
+        image: "IMG_20250511_140946_883.jpg",
+        popular: false
+    },
+    {
+        id: 46,
+        name: "مولي كيلوين",
+        description: "دراي فود للقطط البالغة",
+        price: 15000,
+        category: "dry_food",
+        image: "IMG_20250511_140950_312.jpg",
+        popular: false
+    },
+
+    // قسم المعلبات والمغلفات
+    {
+        id: 47,
+        name: "معلبات (3 قطع)",
+        description: "وجبات معلبة للقطط",
+        price: 5000,
+        category: "canned_food",
+        image: "IMG_20250511_140954_155.jpg",
+        popular: false
+    },
+    {
+        id: 48,
+        name: "مغلفات وايسكاس",
+        description: "أكياس طعام للقطط",
+        price: 14000,
+        category: "canned_food",
+        image: "IMG_20250511_140958_896.jpg",
+        popular: false
+    },
+    {
+        id: 49,
+        name: "مغلفات هاي كلهة",
+        description: "مغلفات طعام للحيوانات الأليفة (1000 قطعة)",
+        price: 1250,
+        category: "canned_food",
+        image: "IMG_20250511_140859_410.jpg",
+        popular: false
+    },
+    {
+        id: 50,
+        name: "مغلف رويال كناين الطبي",
+        description: "طعام طبي للكلاب من رويال كانين",
+        price: 2000,
+        category: "canned_food",
+        image: "IMG_20250511_140901_330.jpg",
+        popular: false
+    },
+    {
+        id: 51,
+        name: "باكيت سناك كاتي",
+        description: "علبة سناكات تحتوي على 10 قطع للقطط",
+        price: 2000,
+        category: "canned_food",
+        image: "IMG_20250511_140904_858.jpg",
+        popular: false
+    },
+
+    // قسم السناكات
+    {
+        id: 52,
+        name: "سناكات صوصج",
+        description: "وجبات خفيفة للحيوانات الأليفة",
+        price: 4250,
+        category: "snacks",
+        image: "IMG_20250511_140902_763.jpg",
+        popular: false
+    },
+
+    // قسم العناية (تم نقل بعض المنتجات هنا)
+    {
+        id: 53,
+        name: "قطرات عث",
+        description: "قطرات لعلاج عث الأذن في القطط",
+        price: 10000,
+        category: "prevention",
+        image: "IMG_20250510_101741_710.jpg",
+        popular: false
+    }
 ];
